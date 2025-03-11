@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anchal!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary-color: #ff85a2;
+            --secondary-color: #ffd5e5;
+            --accent-color: #9d65c9;
+            --text-color: #333;
+            --light-color: #fff;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: calc(350px * 10); /* 5 slides × 2 for infinite loop */
+        }
+        
+        .carousel-slide {
+            flex: 0 0 350px;
+            margin: 0 15px;
+        }
+        
+        .carousel-slide .photo-placeholder {
+            width: 100%;
+            height: 250px;
+            margin: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .carousel-slide .photo-placeholder:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-350px * 5)); /* 5 slides */
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--light-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--light-color);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .heart {
+            position: absolute;
+            background-color: var(--primary-color);
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            transform: rotate(-45deg);
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        .heart:before, .heart:after {
+            content: "";
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            height: 30px;
+            position: absolute;
+            width: 30px;
+        }
+        
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+        
+        .heart:after {
+            left: 15px;
+            top: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: rotate(-45deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(-45deg) translateY(-20px);
+            }
+            100% {
+                transform: rotate(-45deg) translateY(0px);
+            }
+        }
+        
+        .content-section {
+            background-color: var(--light-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .memory-card {
+            background: linear-gradient(to right, var(--secondary-color), #fce4ec);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .memory-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .memory-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .memory-card p {
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+        
+        .music-player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .songs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .song {
+            background-color: var(--accent-color);
+            color: var(--light-color);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .song:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .message {
+            padding: 30px;
+            font-size: 1.2rem;
+            position: relative;
+            line-height: 1.8;
+            color: var(--text-color);
+            font-weight: 300;
+        }
+        
+        .message strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .message:before, .message:after {
+            content: '"';
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--accent-color);
+            opacity: 0.2;
+            position: absolute;
+        }
+        
+        .message:before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .message:after {
+            bottom: -30px;
+            right: 0;
+        }
+        
+        .photo-placeholder {
+            width: 300px;
+            height: 200px;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            border: 2px dashed var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .countdown {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .balloons-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            bottom: -100px;
+            animation: fly 15s ease-in infinite;
+            opacity: 0.7;
+        }
+        
+        .balloon:before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.2);
+            top: 40px;
+            left: 15px;
+        }
+        
+        @keyframes fly {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--accent-color);
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        
+        .love-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .love-button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+        
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            z-index: 100;
+        }
+        
+        #popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background-color: var(--light-color);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 80%;
+            animation: pop 0.5s;
+        }
+        
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--light-color);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons-container" id="balloons"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Happy Birthday Anchal!</h1>
+            <p class="subtitle">To the one who makes my heart sing</p>
+            <div class="heart" style="top: 20%; left: 5%;"></div>
+            <div class="heart" style="top: 30%; left: 15%; width: 15px; height: 15px; animation-delay: 1s;"></div>
+            <div class="heart" style="top: 40%; right: 10%; width: 20px; height: 20px; animation-delay: 2s;"></div>
+            <div class="heart" style="top: 70%; right: 20%; width: 25px; height: 25px; animation-delay: 3s;"></div>
+            <div class="heart" style="top: 60%; left: 25%; width: 18px; height: 18px; animation-delay: 1.5s;"></div>
+        </header>
+        
+        <div class="countdown" id="countdown">
+            It's your special day!
+        </div>
+        
+        <section class="content-section">
+            <h2 class="section-title">Our Special Moments</h2>
+            <p>Memories that I'll cherish forever...</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <div class="photo-placeholder">
+                            <img src="images/img1.jpg" >
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="photo-placeholder">
+                            <img src="images/img2.jpg">
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="photo-placeholder">
+                            <img src="images/img3.jpg">
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="photo-placeholder">
+                            <img src="images/img4.jpg">
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="photo-placeholder">
+                            <img src="images/img5.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">To My First Love</h2>
+            
+            <div class="message">
+                <p>Dear <strong>Anchal</strong>,</p>
+                <p>You are my first love, and words often fail me when I try to express how much you mean to me. Your smile brightens my darkest days, and your laugh is the melody I want to hear forever.</p>
+                <p>I love how passionate you are about singing and your dream of vlogging your life. Your enthusiasm and creativity inspire me every day.</p>
+                <p>As you celebrate another year of your beautiful life, I want you to know that I cherish every moment with you, and I never want to lose you.</p>
+                <p>Happy Birthday, my love. Here's to many more memories together.</p>
+                <p>With all my heart,</p>
+                <p><strong>Your Love</strong></p>
+            </div>
+            
+            <button class="love-button" id="loveBtn">Click For A Special Surprise</button>
+        </section>
+        
+        <footer>
+            Made with ❤️ for the most special person in my world
+        </footer>
+    </div>
+    
+    <div id="popup">
+        <div class="close" onclick="closePopup()">&times;</div>
+        <div class="popup-content">
+            <h2 style="color: var(--primary-color); font-family: 'Dancing Script', cursive; font-size: 3rem; margin-bottom: 20px;">I Love You!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">You're the song in my heart, the smile on my face, and the love of my life.</p>
+            <p style="font-size: 1.5rem; color: var(--accent-color);">I want to create countless more memories with you. ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        // Create balloons
+        function createBalloons() {
+            const colors = ['#ff85a2', '#9d65c9', '#ffd5e5', '#ff5983', '#8e44ad'];
+            const container = document.getElementById('balloons');
+            
+            for (let i = 0; i < 20; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = `${Math.random() * 100}%`;
+                balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.animationDuration = `${15 + Math.random() * 10}s`;
+                balloon.style.animationDelay = `${Math.random() * 5}s`;
+                balloon.style.width = `${20 + Math.random() * 30}px`;
+                balloon.style.height = `${30 + Math.random() * 40}px`;
+                container.appendChild(balloon);
+            }
+        }
+        
+        // Clone carousel items for infinite loop effect
+        function setupCarousel() {
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.carousel-slide');
+            
+            // Clone the slides and append to the track for seamless looping
+            slides.forEach(slide => {
+                const clone = slide.cloneNode(true);
+                track.appendChild(clone);
+            });
+        }
+        
+        // Love button popup
+        const loveBtn = document.getElementById('loveBtn');
+        const popup = document.getElementById('popup');
+        
+        loveBtn.addEventListener('click', () => {
+            popup.classList.add('active');
+            createMoreHearts();
+        });
+        
+        function closePopup() {
+            popup.classList.remove('active');
+        }
+        
+        // Create hearts effect
+        function createMoreHearts() {
+            const container = document.body;
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.top = `${Math.random() * 100}%`;
+                    heart.style.width = `${10 + Math.random() * 30}px`;
+                    heart.style.height = `${10 + Math.random() * 30}px`;
+                    heart.style.opacity = '0.8';
+                    heart.style.position = 'fixed';
+                    heart.style.zIndex = '10';
+                    heart.style.animation = `float ${5 + Math.random() * 10}s ease-in-out infinite`;
+                    container.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 10000);
+                }, i * 100);
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createBalloons();
+            setupCarousel();
+        });
+    </script>
+</body>
+</html>
